@@ -1,4 +1,4 @@
-# Centinela SRE: guía y MVP de agente de triaje
+# Agente DevOps SRE: guía y MVP de agente de 
 
 Guía de implementación y agente demostrativo para tratamient de alertas en un entorno de **prueba**. Acompaña el Trabajo Final de Grado *"Transformación de roles y competencias en equipos DevOps/SRE: incorporación de agentes autónomos de IA"* (UEAN, Licenciatura en Tecnología Informática).
 
