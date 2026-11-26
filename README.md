@@ -36,18 +36,36 @@ El MVP utiliza Hermes Agent como framework agéntico y Google Gemini como modelo
 
 La infraestructura se encuentra desplegada en una máquina virtual de Google Cloud Platform.
 
+
 ```mermaid
-flowchart TD
-    A[Operador DevOps/SRE] --> B[Interfaz web]
-    B --> C[Hermes Agent]
-    C --> D[Google Gemini API]
-    E[AGENTS.md] --> C
-    F[Memoria] --> C
-    G[Skills] --> C
-    C --> H[Diagnóstico y recomendaciones]
-    H --> I[Validación humana]
-    C --> J[Registros de ejecución]
+flowchart LR
+    U["Operador DevOps/SRE"]
+
+    subgraph GCP["Google Cloud Platform"]
+        subgraph VM["VM - Ubuntu 24.04"]
+            subgraph Docker["Docker Compose"]
+                UI["Hermes Web UI"]
+                HA["Hermes Agent"]
+                UI <--> HA
+            end
+
+            subgraph Config["Configuración del agente"]
+                A["AGENTS.md"]
+                S["SOUL.md"]
+                M["Memoria"]
+                K["Skills"]
+            end
+
+            Config --> HA
+        end
+    end
+
+    G["Google Gemini API"]
+
+    U <--> UI
+    HA <--> G
 ```
+
 
 ### Stack tecnológico
 
