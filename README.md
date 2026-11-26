@@ -64,6 +64,45 @@ flowchart LR
     style U fill:#334155,stroke:#94a3b8,color:#ffffff
 ```
 
+## Arquitectura de configuración y gobernanza
+
+```mermaid
+flowchart TD
+    S["SOUL.md<br/>Identidad"]
+    A["AGENTS.md<br/>Rol y autonomía"]
+    M["MEMORY.md<br/>Conocimiento"]
+    U["USER.md<br/>Perfil del operador"]
+
+    H["Hermes Agent"]
+    L["LIMITS.md<br/>Política de memoria"]
+    G["Google Gemini API"]
+    K["SKILL.md<br/>Análisis de incidentes"]
+    R["Diagnóstico y recomendaciones"]
+    V["Supervisión humana"]
+
+    S --> H
+    A --> H
+    M --> H
+    U --> H
+
+    L -.-> A
+    H <--> G
+    H <--> K
+    H --> R
+    R --> V
+
+    classDef context fill:#345674,stroke:#527a9c,color:#ffffff
+    classDef agent fill:#065f46,stroke:#34d399,color:#ffffff
+    classDef governance fill:#854d0e,stroke:#eab308,color:#ffffff
+    classDef model fill:#1d4ed8,stroke:#60a5fa,color:#ffffff
+    classDef output fill:#334155,stroke:#94a3b8,color:#ffffff
+
+    class S,A,M,U context
+    class H agent
+    class L governance
+    class G model
+    class K,R,V output
+```
 
 ### Stack tecnológico
 
